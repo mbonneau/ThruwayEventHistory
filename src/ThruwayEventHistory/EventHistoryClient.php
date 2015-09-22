@@ -65,7 +65,7 @@ class EventHistoryClient extends Client
         $sessionId           = $rpcArgs[1];
         $subscriptionOptions = $rpcArgs[2];
 
-        Logger::info($this, "Someone subscribed - giving them event history: " . $this->currentState . "\n");
+        Logger::info($this, "Someone subscribed - giving them event history.\n");
 
         // setup special options for state restore
         // these are needed to instruct the router to only send to the one session and to

@@ -26,7 +26,7 @@ $clientPublisher->on('open', function (\Thruway\ClientSession $session) {
     $session->publish('my.topic', ["state"]);
     $session->publish('my.topic', ["stuff"]);
 
-    \Thruway\Logging\Logger::info($this, "Finished publishing the items...");
+    \Thruway\Logging\Logger::info(null, "Finished publishing the items...");
 });
 
 $clientPublisher->start(false);
@@ -36,10 +36,10 @@ $loop->addTimer(5, function () use ($loop) {
     $clientSubscriber->addTransportProvider(new \Thruway\Transport\PawlTransportProvider("ws://127.0.0.1:8080/"));
 
     $clientSubscriber->on('open', function (\Thruway\ClientSession $session) {
-        \Thruway\Logging\Logger::info($this, "Subscribing from the second client...");
+        \Thruway\Logging\Logger::info(null, "Subscribing from the second client...");
 
         $session->subscribe('my.topic', function ($args) {
-            \Thruway\Logging\Logger::info($this, "Second client got event with args: " . json_encode($args) . "\n";
+            \Thruway\Logging\Logger::info(null, "Second client got event with args: " . json_encode($args) . "\n");
         });
     });
 
