@@ -34,7 +34,7 @@ class EventHistoryClient extends Client
      */
     public function onSessionStart($session, $transport)
     {
-        // we subscribe to the topic so we can get the button changes
+        // we subscribe to the topic so we can get the events
         $subscriptionPromise = $session->subscribe($this->uri, [$this, "subscriptionHandler"]);
 
         // register the RPC that will be providing the state information upon subscription
